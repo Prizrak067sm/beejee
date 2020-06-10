@@ -49,7 +49,7 @@
     <table id="table_tasks">
         <!-- Шапка таблицы - наименования столбцов -->
         <thead>
-            <th class="table-column-username">Имя исполнителя</th>
+            <th class="table-column-username">Имя пользователя</th>
             <th class="table-column-email">e-mail</th>
             <th class="table-column-task">Задача</th>
             <th class="table-column-status">Статус</th>
