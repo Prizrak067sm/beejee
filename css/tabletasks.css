@@ -1,0 +1,236 @@
+#table_tasks{
+    width: 100%;
+
+    border-collapse: collapse;
+
+    font-size: 15pt;
+
+    box-shadow: 0 0 13px 0px #ee86ec;
+}
+
+#table_tasks thead tr{
+    color: #cb9400;
+}
+
+#table_tasks tbody tr{
+
+    color: #ffba00;
+}
+
+#table_tasks tbody tr:nth-child(odd){
+    background: linear-gradient(to left, #7a37d3,#00003b,#7a37d3);
+}
+
+.table-column-username{
+    width: 15%;
+    text-align: center;
+    font-weight: bold;
+}
+.table-column-email{
+    width: 15%;
+}
+.table-column-task{
+    width: 60%;
+}
+.table-column-status{
+    width: 5%;
+    text-align: center;
+}
+.table-column-edited{
+    width: 5%;
+    text-align: center;
+}
+
+/* --- КРЕСТИК В СТАТУСЕ --- */
+.dagger{
+    --widthGor-heightVert: 33px;
+    --heightGor-widthVert: 9px;
+    --space: calc((var(--widthGor-heightVert) - var(--heightGor-widthVert))/2);
+
+    display:inline-block;
+    position:relative;
+
+    width:var(--heightGor-widthVert);
+    height:var(--widthGor-heightVert);
+
+    background: linear-gradient(to top, #680800, #9c0000, #680800);
+
+    border-radius:50%;
+
+    box-shadow: 0 0 17px 0 white;
+    animation-name: rotateInfDagger;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.dagger:after{
+    content:"";
+    position:absolute;
+    display: block;
+
+    height:var(--heightGor-widthVert);
+    width:var(--widthGor-heightVert);
+
+    top:var(--space);
+    left:calc(var(--space)*(-1));
+
+    background: linear-gradient(to left, #680800, #9c0000, #680800);
+
+    border-radius:inherit;
+}
+.dagger:hover{
+    animation-duration: 1s;
+}
+@keyframes rotateInfDagger{
+    0%{
+        transform:rotate(45deg);
+    }
+    100%{
+        transform:rotate(225deg);
+    }
+}
+/* --- конец. КРЕСТИК В СТАТУСЕ --- */
+
+/* --- Галочка в статусе --- */
+.galka{
+    --width-leftPart-galka: 8px;
+    --height-leftPart-galka: 20px;
+
+    position:relative;
+    display: inline-block;
+
+    width: var(--width-leftPart-galka);
+    height: var(--height-leftPart-galka);
+
+    margin-top:calc(var(--height-leftPart-galka)/1.5);
+
+    background-color: #8bba2f;
+
+    box-shadow: inset 0 100px 10px -90px yellow;
+
+    transform-origin: 0 100%;
+    transform: rotate(-45deg);
+
+    border-top-right-radius: 100% 100%;
+
+    animation-name: galka_gradient;
+    animation-duration: 3s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+.galka:before{
+    content:"";
+    position:absolute;
+    display: block;
+
+    bottom: calc(var(--width-leftPart-galka)*(-1));
+
+    height:  var(--width-leftPart-galka);
+    width: calc(var(--height-leftPart-galka)*1.5);
+
+    background: inherit;
+    transform-origin: 0 0;
+    transform: rotate(-25deg);
+
+    border-radius: 0 100% 0 30% / 0 100% 0 100%;
+
+    box-shadow: inset -100px 0 10px -90px yellow;
+
+    animation: galka_gradient 3s alternate infinite, galka_movie 4s alternate infinite;
+}
+
+.galka:hover:before{
+    animation: galka_gradient 1s alternate infinite, galka_movie 0.5s alternate infinite;
+}
+
+
+@keyframes galka_gradient{
+    100%{
+        box-shadow: none;
+    }
+}
+@keyframes galka_movie{
+    100%{
+        transform: rotate(-45deg);
+    }
+}
+/* ----конец. Галочка в статусе. ---- */
+
+.inputRadio_idTask{
+    transition-duration: 1s;
+}
+
+/* Фильтр сортировки */
+#div_table_filter{
+    text-align: center;
+
+    color: inherit;
+}
+
+.select-filter{
+    height: 30px;
+
+    border-radius: 27%;
+
+    background-color: #8f40f2;
+    color: white;
+
+    font-family: inherit;
+    font-size: 14pt;
+}
+/* Конец фильтра */
+
+#div-control-table{
+    display: flex;
+}
+
+:root{
+    --width-container-btnControlTable: 240px;
+}
+
+#div-container-btnControlTable{
+    width: var(--width-container-btnControlTable);
+}
+#div-container-btnControlTable a{
+    text-decoration: none;
+    color: inherit;
+    font-size: 14pt;
+}
+
+#btnEditTask{
+    float: right;
+}
+
+#div-container-btnControlTable a:active{
+    display: inline-block;
+    transform: rotate(5deg);
+}
+#div-container-btnControlTable a:hover{
+    color: yellow;
+}
+
+#div-container-pagination{
+    width: 100%;
+    text-align: center;
+}
+#div-container-pagination span{
+    float: right;
+    width: var(--width-container-btnControlTable);
+    text-align: right;
+}
+.links-number-page{
+    color: inherit;
+    text-decoration: none;
+    font-size: 17pt;
+    line-height: 53px;
+}
+.links-number-page:hover{
+    font-size: 27pt;
+    line-height: unset;
+}
+#link-numberPage-activ{
+    color: yellow;
+    font-weight: bolder;
+    pointer-events: none;
+    cursor: not-allowed;
+}

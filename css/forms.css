@@ -1,0 +1,60 @@
+.form-input-all-available-space{
+    margin: 17px;
+    text-align: center;
+}
+
+.form-input-all-available-space div{
+    display: flex;
+    font-family: Cambria;
+    margin-bottom: 17px;
+}
+@media all and (max-width: 980px){
+    .form-input-all-available-space div {
+        display: block;
+    }
+}
+
+.form-input-all-available-space div>div{
+    flex-grow: 1;
+}
+
+.form-input-all-available-space .div-checkbox{
+    flex-grow: unset;
+}
+
+.form-input-all-available-space div input{
+    font-size: 13pt;
+
+    width: 100%;
+}
+
+.form-input-all-available-space div input[type='checkbox']{
+
+    width: 20px;
+    height: 20px;
+}
+
+.form-input-all-available-space div label{
+    font-size: 14pt;
+    white-space: nowrap;
+}
+
+.form-input-all-available-space .div_for_textarea{
+    align-items: center;
+}
+
+.form-input-all-available-space .div_for_textarea textarea{
+    font-size: 13pt;
+
+    width: 100%;
+    height: 170px;
+}
+
+.form-input-all-available-space .div_for_textarea label{
+    font-size: 13pt;
+    white-space: normal;
+}
+
+.form-input-all-available-space input[type="submit"]{
+    display: inline-block;
+}

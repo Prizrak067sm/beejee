@@ -1,0 +1,142 @@
+#head{
+    border-bottom: gray solid 2px;
+    display: flex;
+}
+
+/* ~~~ Блок для логотипа. ~~~ */
+#conteiner_logo_head{
+    margin-left: auto;
+    margin-right: auto;
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+#conteiner_logo_head *{
+    white-space: nowrap;
+}
+
+.jump-fragment{
+    animation-duration: inherit;
+    display: inline-block;
+    animation-name: infiJump;
+    animation-iteration-count: infinite;
+}
+
+.conteiner_for_fragment_animation:hover{
+    animation-duration: 100ms;
+}
+
+@keyframes infiJump {
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(10px);
+    }
+    100%{
+
+        transform: translateY(0px);
+    }
+
+}
+
+#head_userPanel{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    font-size: 13pt;
+    color: #adadad;
+
+    text-align: center;
+}
+
+#conteiner_btn_userPanel{
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#refLogo{
+    text-decoration: none;
+    color: #eec400;
+}
+
+.btn{
+    display: inline-block;
+    padding: 6px;
+    font-size: 14pt;
+    color: #292b2c;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+
+    transition-duration: 1s;
+}
+
+.btn:hover{
+    color: #292b2c;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+    border-radius: 13px;
+    border-bottom-left-radius: 35px;
+    border-top-right-radius: 35px;
+}
+
+.btn-activ:active{
+    display: inline-block;
+    transform: translateY(1px) translateX(-1px) skewX(7deg);
+    transition-duration: .1s;
+}
+
+/* ~~~ Для кнопок входа/выхода/регистрации ~~~ */
+.btnAuth{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-decoration: none;
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* ~~~ Прозрачный блок-контеинер, который по ссылке будет появляться на всю область браузера. Содержит форму авторизации ~~~ */
+.conteiner-transparent-div{
+    display: none;
+    position: fixed;
+
+    background-color: rgba(0, 0, 0, 0.7);
+
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+/* Растягиваем ссылку на весь контеинер. Чтобы срабатывала в любом месте. */
+.conteiner-transparent-div a{
+    display: block;
+    height: 100%;
+}
+/* ---------------------------------------------------------------------- */
+
+/* По якорю контеинер(и все вложенные элементы) станет видимым. */
+.conteiner-transparent-div:target{
+    display: block;
+}
+/* ---------------------------------- */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.conteiner-transparent-div>div{
+    position:  absolute;
+    display: inline-block;
+    text-align: center;
+    background-color: blanchedalmond;
+    width: 40%;
+
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    transition-duration: 7s;
+}
+
+.conteiner-transparent-div>div:hover{
+    border-radius: 40px;
+}

@@ -1,0 +1,51 @@
+#footer{
+    position: relative;
+
+    border-top: gray solid 2px;
+    font-size: 14pt;
+    font-weight: bolder;
+}
+
+.movie-right-to-left{
+    position: absolute;
+    right: 0;
+    white-space: nowrap;
+
+    color: #7a37d3;
+
+    animation-name: movie_rightToleft;
+    animation-duration: 17s;
+    animation-direction: normal;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+/* Анимация движения элемента и переворот на краях */
+@keyframes movie_rightToleft {
+    20%{
+        color: #00003b;
+    }
+    40%{
+        right: 100%;
+        transform: translateX(100%) rotate(0deg);
+        color: #7a37d3;
+    }
+    50%{
+        right: 100%;
+        transform: translateX(100%) rotate(360deg);
+        color: #7a37d3;
+    }
+    70%{
+        color: #00003b;
+    }
+    90%{
+        right: 0;
+        transform: rotate(360deg);
+        color: #7a37d3;
+    }
+    100%
+    {
+        transform:  rotate(0deg);
+        color: #7a37d3;
+    }
+}
+/* Конец анимации */
