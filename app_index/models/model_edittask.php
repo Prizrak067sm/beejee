@@ -35,11 +35,12 @@
                 $email=htmlentities($data['email'],ENT_QUOTES, "UTF-8");
                 $task=htmlentities($data['task'],ENT_QUOTES, "UTF-8");
                 $status=$data['status']=='on' ? 1 : 0;
+                $edited = $task == $this->textTaskForID($id) ? 0 : 1;   // Помечаем отредактировано только при изменении текста задачи.
                 // -----------------------------------------------------------------------------
 
-                $SQL = "UPDATE tasks SET username=:username, email=:email, task=:task, status=:status, edited=1 WHERE id=:id";
+                $SQL = "UPDATE tasks SET username=:username, email=:email, task=:task, status=:status, edited=:edited WHERE id=:id";
                 $stmt = $this->problem_book->prepare($SQL);
-                $stmt->execute(array($username, $email, $task, $status, $id));
+                $stmt->execute(array($username, $email, $task, $status, $edited, $id));
 
                 $countUpdateRow = $stmt->rowCount();   // Количество затронутых записей.
 
@@ -59,5 +60,25 @@
             return $result;
         }
         // ----------------- Конец update_data. --------------------------------------------------------------------------------
+
+        // --- Возвращает текст задачи по id. Нужна для проверки изменения текста. ---
+        private function textTaskForID($id){
+            try
+            {
+                $SQL = "SELECT task FROM tasks WHERE id = ?";
+                $stmt = $this->problem_book->prepare($SQL);
+                $stmt->execute(array($id));
+                $result = $stmt->fetch();
+                $result = $result[0];
+            }
+            catch (Exception $e)
+            {
+                $result = false;
+                echo "Произошла ошибка при извлечении текста задачи- ".$e->getMessage();
+            }
+
+            return $result;
+        }
+        // ---- Конец textTaskForID. ---------------------------------------------------
     }
 ?>
